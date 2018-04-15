@@ -32,8 +32,26 @@ import java.io.File;
 import java.io.OutputStream;
 import java.sql.SQLException;
 /**
- *
- * Created by dscheiffele on 4/8/18.
+ * Copyright © 2018 Darya Scheiffele,
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * <p/>
+ * Purpose: An app that provides information about various places stored in
+ * a json file, ability to calculate great-circle spherical distance between any
+ * of the 2 places in the json file.
+ * @author Darya Scheiffele dchachul@asu.edu
+ *         Software Engineering, Arizona State University
+ * @version April 13, 2018
  */
 
 public class PlaceLibrary extends Object implements Serializable {
@@ -130,7 +148,6 @@ public class PlaceLibrary extends Object implements Serializable {
 
     public boolean add(PlaceDescription aPlace) {
         boolean ret = true;
-        //debug("adding student named: " + ((aStud == null) ? "unknown" : aStud.name));
         try {
             places.put(aPlace.name, aPlace);
         } catch (Exception ex) {

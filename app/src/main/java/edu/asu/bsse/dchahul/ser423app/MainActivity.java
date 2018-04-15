@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     private ListView placeLV;
     private PlaceLibrary places;  // a collection of places (serializable)
     private String[] placeNames ;//= places.getNames();
-    private EditText nameBox, idBox;
+    private EditText nameBox, descriptionBox, categoryBox, addrTitleBox, addrBox, elevationBox, latitudeBox, longitudeBox;
 
     private String[] colName = {"Name", "Description"};
     private int[] colIDs;
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         switch (item.getItemId()) {
             case R.id.action_add:
                 android.util.Log.d(this.getClass().getSimpleName(),"onOptionsItemSelected -> add");
-                this.newStudentAlert();
+                this.newPlaceAlert();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -166,9 +166,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         placeLV.setOnItemClickListener(this);
     }
 
-    private void newStudentAlert() {
+    private void newPlaceAlert() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Student Name and id");
+        dialog.setTitle("Please fill out to add new place");
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
@@ -176,10 +176,38 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         nameBox.setHint("Name");
         layout.addView(nameBox);
 
-        this.idBox = new EditText(this);
-        idBox.setHint("Id Number");
-        idBox.setInputType(InputType.TYPE_CLASS_NUMBER);
-        layout.addView(idBox);
+        this.descriptionBox = new EditText(this);
+        descriptionBox.setHint("Description");
+        layout.addView(descriptionBox);
+
+        this.categoryBox = new EditText(this);
+        categoryBox.setHint("Category");
+        layout.addView(categoryBox);
+
+        this.addrTitleBox = new EditText(this);
+        addrTitleBox.setHint("Address Title");
+        layout.addView(addrTitleBox);
+
+        this.addrBox = new EditText(this);
+        addrBox.setHint("Address");
+        layout.addView(addrBox);
+
+        this.elevationBox = new EditText(this);
+        elevationBox.setHint("Elevation");
+        elevationBox.setInputType(InputType.TYPE_CLASS_NUMBER);
+        layout.addView(elevationBox);
+
+        this.latitudeBox = new EditText(this);
+        latitudeBox.setHint("Latitude");
+        latitudeBox.setInputType(InputType.TYPE_NUMBER_FLAG_SIGNED);
+        layout.addView(latitudeBox);
+
+        this.longitudeBox = new EditText(this);
+        longitudeBox.setHint("Longitude");
+        longitudeBox.setInputType(InputType.TYPE_NUMBER_FLAG_SIGNED);
+        layout.addView(longitudeBox);
+
+
         dialog.setView(layout);
         dialog.setNegativeButton("Cancel", this);
         dialog.setPositiveButton("Add", this);
@@ -194,14 +222,15 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 (whichButton==DialogInterface.BUTTON_POSITIVE));
         if(whichButton == DialogInterface.BUTTON_POSITIVE) {
             String name = nameBox.getText().toString();
-            String[] firstNLast = name.split(" ");
-            if(firstNLast.length==0 || firstNLast[0].equals("")){
-                firstNLast = new String[]{"noFirst","noLast"};
-            }else if(firstNLast.length==1){
-                firstNLast = new String[]{firstNLast[0],"noLast"};
-            }
-            int num = idBox.getText().toString().equals("") ? 0 : Integer.parseInt(idBox.getText().toString());
-            places.add(new PlaceDescription());
+            String description = descriptionBox.getText().toString();
+            String category = categoryBox.getText().toString();
+            String addrTitle = addrTitleBox.getText().toString();
+            String addr = addrBox.getText().toString();
+            String elev = elevationBox.getText().toString();
+            String latitude = latitudeBox.getText().toString();
+            String longitude = longitudeBox.getText().toString();
+            //int num = idBox.getText().toString().equals("") ? 0 : Integer.parseInt(idBox.getText().toString());
+            places.add(new PlaceDescription(name, description, category, addrTitle, addr, elev, latitude, longitude));
             prepareAdapter();
             SimpleAdapter sa = new SimpleAdapter(this, fillMaps, R.layout.place_list_item, colName, colIDs);
             placeLV.setAdapter(sa);

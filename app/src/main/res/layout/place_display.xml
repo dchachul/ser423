@@ -10,11 +10,10 @@
         android:id="@+id/studentPan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="434dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginTop="9dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/gcd_tv"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/place_category"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -29,16 +28,14 @@
     <LinearLayout
         android:id="@+id/button_view"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="52dp"
-        android:layout_marginTop="390dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
         android:paddingBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/bearing_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
 
 
         <Spinner
@@ -54,16 +51,16 @@
             android:id="@+id/addButt"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:onClick="addClicked"
+            android:layout_height="70dp"
+            android:onClick="greatCircleDist"
             android:text="@string/action_gcd" />
 
         <Button
             android:id="@+id/removeButt"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:onClick="removeClicked"
+            android:layout_height="70dp"
+            android:onClick="bearing"
             android:text="@string/action_ib" />
 
         <TextView
@@ -81,37 +78,39 @@
     <EditText
         android:id="@+id/place_description"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="37dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
         android:contentDescription="@string/place_description"
         android:inputType="textMultiLine"
-        android:text="@string/place_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:singleLine="false"
+        android:text="@string/place_description"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/place_category"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/place_address"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
-        android:layout_marginBottom="46dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="place_address"
         android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toBottomOf="@+id/place_elevation"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="@+id/address_title"
-        app:layout_constraintTop_toTopOf="@+id/address_title" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
         android:id="@+id/place_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="100dp"
         android:contentDescription="place_category"
         android:inputType="textPersonName"
         android:text="Category"
-        app:layout_constraintStart_toStartOf="@+id/place_description"
-        app:layout_constraintTop_toTopOf="@+id/place_description" />
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/place_description" />
 
     <EditText
         android:id="@+id/address_title"
@@ -127,58 +126,139 @@
         android:id="@+id/place_elevation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="5dp"
         android:inputType="textPersonName"
         android:text="Elevation"
         app:layout_constraintStart_toStartOf="@+id/place_address"
-        app:layout_constraintTop_toBottomOf="@+id/address_title" />
+        app:layout_constraintTop_toBottomOf="@+id/place_address" />
 
     <EditText
         android:id="@+id/place_latitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="4dp"
         android:inputType="textPersonName"
         android:text="Latitude"
-        app:layout_constraintStart_toStartOf="@+id/place_elevation"
+        app:layout_constraintEnd_toStartOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/place_elevation" />
 
     <EditText
         android:id="@+id/place_longitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginStart="25dp"
         android:inputType="textPersonName"
         android:text="Longitude"
-        app:layout_constraintStart_toStartOf="@+id/place_latitude"
-        app:layout_constraintTop_toBottomOf="@+id/place_latitude" />
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintStart_toEndOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/gcd_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="143dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginStart="189dp"
         android:contentDescription="GCD"
         android:text="GCD"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bearing_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentPan" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/bearing_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="55dp"
         android:contentDescription="bearing"
         android:text="bearing"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/gcd_tv"
-        app:layout_constraintTop_toBottomOf="@+id/button_view" />
+        app:layout_constraintStart_toEndOf="@+id/gcd_tv" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="11dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="Category"
+        android:text="Category"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/place_description"
+        app:layout_constraintTop_toTopOf="@+id/place_category" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginBottom="125dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="125dp"
+        android:contentDescription="Address"
+        android:text="Adress Title"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintEnd_toStartOf="@+id/place_category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/studentPan" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:text="Adress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="231dp"
+        android:text="Elevation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:text="Latitude"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:layout_marginStart="168dp"
+        android:text="Longitude"
+        app:layout_constraintBottom_toTopOf="@+id/button_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Please select a place from drop down menu and click respective button to find distance or bearing"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button_view"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

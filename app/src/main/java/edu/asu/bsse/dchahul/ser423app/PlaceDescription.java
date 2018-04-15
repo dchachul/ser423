@@ -4,13 +4,32 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import static java.lang.Math.acos;
+import static java.lang.Math.atan2;
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
 
-
 /**
- * Created by dscheiffele on 4/8/18.
+ * Copyright © 2018 Darya Scheiffele,
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * <p/>
+ * Purpose: An app that provides information about various places stored in
+ * a json file, ability to calculate great-circle spherical distance between any
+ * of the 2 places in the json file.
+ * @author Darya Scheiffele dchachul@asu.edu
+ *         Software Engineering, Arizona State University
+ * @version April 13, 2018
  */
 
 public class PlaceDescription implements Serializable {
@@ -47,13 +66,13 @@ public class PlaceDescription implements Serializable {
      * @param addressTitle
      * @param
      */
-    public PlaceDescription(String name, String description, String category, String addressTitle, String addres, String elevation, String latitude, String longitutde) {
+    public PlaceDescription(String name, String description, String category, String addressTitle, String address, String elevation, String latitude, String longitutde) {
         super();
         this.name = name;
         this.description = description;
         this.category = category;
         this.addressTitle = addressTitle;
-        this.address = addres;
+        this.address = address;
         this.elevation = elevation;
         this.latitude = latitude;
         this.longitude = longitutde;
@@ -167,6 +186,18 @@ public class PlaceDescription implements Serializable {
         double lam2 = Double.parseDouble(place2.longitude) * PI_RAD;
 
         return EARTH_RAD * acos(sin(phi1) * sin(phi2) + cos(phi1) * cos(phi2) * cos(lam2 - lam1));
+
+
+    }
+
+    public double InitBearing(PlaceDescription place2){
+
+        double phi1 = Double.parseDouble(this.latitude) * PI_RAD;
+        double phi2 = Double.parseDouble(place2.latitude) * PI_RAD;
+        double lam1 = Double.parseDouble(this.longitude) * PI_RAD;
+        double lam2 = Double.parseDouble(place2.longitude) * PI_RAD;
+
+        return atan2(cos(phi1) * sin(phi2) - sin(phi1) * cos(phi2) * cos(lam2 - lam1),sin(lam2 - lam1)*cos(phi2));
 
 
     }
