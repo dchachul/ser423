@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ser423app</string>
+    <string name="place">Place</string>
+    <string name="place_description">Place Description</string>
+    <string name="place_name">Place Name</string>
+    <string name="action_back">Back</string>
+    <string name="action_add">Add</string>
+    <string name="action_remove">Remove</string>
+    <string name="action_gcd">Great Circle Distance</string>
+    <string name="action_ib">Initial Bearing</string>
+    <string name="place_list">Place List</string>
+</resources>

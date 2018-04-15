@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="40dp">
+
+    <TextView android:id="@+id/place_name"
+        android:text="@string/place_name"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:width="75dp"/>
+
+    <TextView android:id="@+id/place_description"
+        android:text="@string/place_description"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:width="200dp"/>
+
+</LinearLayout>

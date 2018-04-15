@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
+
+    <LinearLayout
+        android:id="@+id/studentPan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="434dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/gcd_tv"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/place_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="52dp"
+        android:layout_marginTop="390dp"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/bearing_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <Spinner
+            android:id="@+id/placeSpinner"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/addButt"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:onClick="addClicked"
+            android:text="@string/action_gcd" />
+
+        <Button
+            android:id="@+id/removeButt"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:onClick="removeClicked"
+            android:text="@string/action_ib" />
+
+        <TextView
+            android:id="@+id/gcd"
+            android:layout_width="31dp"
+            android:layout_height="30dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/addButt" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/place_description"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:contentDescription="@string/place_description"
+        android:inputType="textMultiLine"
+        android:text="@string/place_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/place_address"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginBottom="46dp"
+        android:layout_marginTop="46dp"
+        android:contentDescription="place_address"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/place_elevation"
+        app:layout_constraintStart_toStartOf="@+id/address_title"
+        app:layout_constraintTop_toTopOf="@+id/address_title" />
+
+    <EditText
+        android:id="@+id/place_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:contentDescription="place_category"
+        android:inputType="textPersonName"
+        android:text="Category"
+        app:layout_constraintStart_toStartOf="@+id/place_description"
+        app:layout_constraintTop_toTopOf="@+id/place_description" />
+
+    <EditText
+        android:id="@+id/address_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="address_title"
+        android:inputType="text"
+        android:text="Address Title"
+        app:layout_constraintStart_toStartOf="@+id/place_category"
+        app:layout_constraintTop_toBottomOf="@+id/place_category" />
+
+    <EditText
+        android:id="@+id/place_elevation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:inputType="textPersonName"
+        android:text="Elevation"
+        app:layout_constraintStart_toStartOf="@+id/place_address"
+        app:layout_constraintTop_toBottomOf="@+id/address_title" />
+
+    <EditText
+        android:id="@+id/place_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="textPersonName"
+        android:text="Latitude"
+        app:layout_constraintStart_toStartOf="@+id/place_elevation"
+        app:layout_constraintTop_toBottomOf="@+id/place_elevation" />
+
+    <EditText
+        android:id="@+id/place_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:inputType="textPersonName"
+        android:text="Longitude"
+        app:layout_constraintStart_toStartOf="@+id/place_latitude"
+        app:layout_constraintTop_toBottomOf="@+id/place_latitude" />
+
+    <TextView
+        android:id="@+id/gcd_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="143dp"
+        android:contentDescription="GCD"
+        android:text="GCD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bearing_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentPan" />
+
+    <TextView
+        android:id="@+id/bearing_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="9dp"
+        android:contentDescription="bearing"
+        android:text="bearing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gcd_tv"
+        app:layout_constraintTop_toBottomOf="@+id/button_view" />
+
+
+</android.support.constraint.ConstraintLayout>
